@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:super_socialize_flutter/data/data.dart';
 import 'package:super_socialize_flutter/screens/home_screen.dart';
 import 'package:super_socialize_flutter/screens/login_screen.dart';
+import 'package:super_socialize_flutter/screens/profile_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   _buildDrawerItems(Icon icon, String title, Function onTap) {
@@ -90,7 +91,12 @@ class CustomDrawer extends StatelessWidget {
           _buildDrawerItems(
             Icon(Icons.account_circle),
             'Your profile',
-            () {},
+            () => Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => ProfileScreen(user: currentUser,),
+              ),
+            ),
           ),
           _buildDrawerItems(
             Icon(
